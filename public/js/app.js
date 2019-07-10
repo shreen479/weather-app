@@ -20,7 +20,7 @@ WeatherForm.addEventListener('submit', (e) => {
     fetch(link).then( (response) => {
     
         response.json().then( (data) => {
-     
+            console.log(data)
             if(data.error){
                 console.log(data.error)
                 msgOne.textContent = data.error
@@ -29,7 +29,7 @@ WeatherForm.addEventListener('submit', (e) => {
                 console.log(data.temperature)
                 console.log(data.precipProbability)
                 msgOne.textContent = 'Location    : ' + data.location
-                msgTwo.textContent = 'Temperature : ' + data.temperature
+                msgTwo.textContent = data.summary + ' Temperature is currently ' + data.temperature + ' with ' + data.precipProbability + '% rain.'
             }
         
         } )
